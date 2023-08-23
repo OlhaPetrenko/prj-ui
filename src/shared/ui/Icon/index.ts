@@ -1,0 +1,1 @@
+export { PrjIcon } from "./Icon";

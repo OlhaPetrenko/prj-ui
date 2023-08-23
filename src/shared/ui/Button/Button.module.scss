@@ -1,0 +1,9 @@
+.btn {
+  padding: 1em 2em;
+  border: 1px solid red;
+
+  &:hover {
+    background-color: #fff;
+    color: blue;
+  }
+}
