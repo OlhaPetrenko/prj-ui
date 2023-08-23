@@ -3,11 +3,11 @@ import { Button } from "semantic-ui-react";
 
 import s from "./Button.module.scss";
 
-const style = {
-  borderRadius: "5px",
-  padding: "1em 2em",
-  border: "2px solid red",
-};
+// const style = {
+//   borderRadius: "5px",
+//   padding: "1em 2em",
+//   border: "2px solid red",
+// };
 
 interface IButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
   children?: ReactNode;
@@ -18,6 +18,7 @@ interface IButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
   content?: string;
   onClick?: () => void;
   size?: "small" | "medium" | "large" | "big";
+  className?: string;
 }
 
 export function PrjButton(props: IButtonProps) {
@@ -30,6 +31,7 @@ export function PrjButton(props: IButtonProps) {
     content,
     onClick,
     size = "medium",
+    className,
   } = props;
 
   return (
@@ -37,11 +39,10 @@ export function PrjButton(props: IButtonProps) {
       primary={isPrimary}
       fluid={fullWidth}
       size={size}
-      className={s.btn}
+      className={className}
       onClick={onClick}
       type={type}
       disabled={disabled}
-      style={style}
     >
       {children}
       {content}

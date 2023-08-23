@@ -5,10 +5,9 @@ import s from "./CreateProductForm.module.scss";
 
 interface CreateProductFormProp {
   onCreate: () => void;
-  qwe: number | string;
 }
 
-function CreateProductForm({ onCreate, qwe }: CreateProductFormProp) {
+function CreateProductForm({ onCreate }: CreateProductFormProp) {
   const [inputValue, setInputValue] = useState("");
 
   const handleSubmit = (event: React.FormEvent) => {

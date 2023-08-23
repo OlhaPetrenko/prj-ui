@@ -6,9 +6,8 @@ import { Container } from "semantic-ui-react";
 import Hello from "./components/hello/hello";
 import Product from "./components/Product/product";
 import Logo from "./img/logo_bg.svg";
-// import { products } from "../../data/products";
 import { IProduct } from "./models";
-import Modal from "./components/Modal/modal";
+
 import CreateProductForm from "./components/CreateProductForm/CreateProductForm";
 
 import { PrjBreadcrumb } from "./shared/ui/Breadcrumb";
@@ -19,6 +18,8 @@ import { PrjInput } from "./shared/ui/Input";
 import { PrjLabel } from "./shared/ui/Label";
 import { PrjIcon } from "./shared/ui/Icon";
 import { PrjLoader } from "./shared/ui/Loader";
+import { PrjCheckbox } from "./shared/ui/Checkbox";
+import { Backdrop } from "./shared/ui/Backdrop";
 
 export default function App() {
   const [products, setProducts] = useState<IProduct[]>([]);
@@ -65,6 +66,7 @@ export default function App() {
           content={"Primary button"}
           onClick={openModal}
           size={"big"}
+          className={"btn"}
         />
         <PrjPopup
           content={
@@ -113,12 +115,11 @@ export default function App() {
         </PrjLabel>
         <Divider />
         <PrjLoader active={true} size="huge" />
+        <PrjCheckbox label={"Make my profile visible"} />
       </Container>
 
       <div style={{ padding: "50px 0" }}>
-        {loading && (
-          <p style={{ textAlign: "center", fontSize: "60px" }}>Loading....</p>
-        )}
+        {loading && <PrjLoader active={true} size="huge" />}
 
         {error && (
           <p style={{ textAlign: "center", fontSize: "60px", color: "red" }}>
@@ -149,14 +150,13 @@ export default function App() {
       </button>
 
       {modalIsOpen && (
-        <Modal title="Create product" onClose={onBackdropClose}>
+        <Backdrop title="Create product" onClose={onBackdropClose}>
           <CreateProductForm
-            qwe={122}
             onCreate={() => {
               setModalIsOpen(false);
             }}
           />
-        </Modal>
+        </Backdrop>
       )}
       <Hello
         name="mango"

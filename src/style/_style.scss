@@ -14,3 +14,12 @@ body {
   background-size: cover;
   background-image: url("img/info10.jpg");
 }
+.ui.primary.button.btn {
+  padding: 1em 2em;
+  border: 1px solid black;
+
+  &:hover {
+    background-color: #fff;
+    color: blue;
+  }
+}
